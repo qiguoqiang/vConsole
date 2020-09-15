@@ -6,20 +6,35 @@
     <dd class="vc-table-col">{{costTime}}</dd>
   </dl>
   <div class="vc-group-detail">
-    {{if (header !== null)}}
+    {{if (requestHeaders !== null)}}
     <div>
       <dl class="vc-table-row vc-left-border">
-        <dt class="vc-table-col vc-table-col-title">Headers</dt>
+        <dt class="vc-table-col vc-table-col-title">Request Headers</dt>
       </dl>
-      {{for (var key in header)}}
+      {{for (var key in requestHeaders)}}
       <div class="vc-table-row vc-left-border vc-small">
         <div class="vc-table-col vc-table-col-2">{{key}}</div>
-        <div class="vc-table-col vc-table-col-4 vc-max-height-line">{{header[key]}}</div>
+        <div class="vc-table-col vc-table-col-4 vc-max-height-line">
+          {{requestHeaders[key]}}
+        </div>
       </div>
       {{/for}}
     </div>
-    {{/if}}
-    {{if (getData !== null)}}
+    {{/if}} {{if (responseHeaders !== null)}}
+    <div>
+      <dl class="vc-table-row vc-left-border">
+        <dt class="vc-table-col vc-table-col-title">Response Headers</dt>
+      </dl>
+      {{for (var key in responseHeaders)}}
+      <div class="vc-table-row vc-left-border vc-small">
+        <div class="vc-table-col vc-table-col-2">{{key}}</div>
+        <div class="vc-table-col vc-table-col-4 vc-max-height-line">
+          {{responseHeaders[key]}}
+        </div>
+      </div>
+      {{/for}}
+    </div>
+    {{/if}} {{if (getData !== null)}}
     <div>
       <dl class="vc-table-row vc-left-border">
         <dt class="vc-table-col vc-table-col-title">Query String Parameters</dt>
@@ -27,12 +42,13 @@
       {{for (var key in getData)}}
       <div class="vc-table-row vc-left-border vc-small">
         <div class="vc-table-col vc-table-col-2">{{key}}</div>
-        <div class="vc-table-col vc-table-col-4 vc-max-height-line">{{getData[key]}}</div>
+        <div class="vc-table-col vc-table-col-4 vc-max-height-line">
+          {{getData[key]}}
+        </div>
       </div>
       {{/for}}
     </div>
-    {{/if}}
-    {{if (postData !== null)}}
+    {{/if}} {{if (postData !== null)}}
     <div>
       <dl class="vc-table-row vc-left-border">
         <dt class="vc-table-col vc-table-col-title">Form Data</dt>
@@ -40,7 +56,9 @@
       {{for (var key in postData)}}
       <div class="vc-table-row vc-left-border vc-small">
         <div class="vc-table-col vc-table-col-2">{{key}}</div>
-        <div class="vc-table-col vc-table-col-4 vc-max-height-line">{{postData[key]}}</div>
+        <div class="vc-table-col vc-table-col-4 vc-max-height-line">
+          {{postData[key]}}
+        </div>
       </div>
       {{/for}}
     </div>
@@ -50,7 +68,9 @@
         <dt class="vc-table-col vc-table-col-title">Response</dt>
       </dl>
       <div class="vc-table-row vc-left-border vc-small">
-        <pre class="vc-table-col vc-max-height vc-min-height">{{response || ''}}</pre>
+        <pre class="vc-table-col vc-max-height vc-min-height">
+{{response || ''}}</pre
+        >
       </div>
     </div>
   </div>
